@@ -1,8 +1,10 @@
 __pycache__/
 */__pycache__/
 **/__pycache__/
-venv/
-.venv/
 ~$*
 .DS_Store
 traces/
+.pytest_cache/
+venv/
+.venv/
+env/

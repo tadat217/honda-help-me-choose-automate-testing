@@ -1,18 +1,20 @@
-# TEST
+# HONDA HELP ME CHOOSE MODULE AUTOMATE TEST
+
 ## Install
 
 ### 1. Create and run virtule enviroment
 
 ```
-$ python3 -m venv .venv
-$ python3 .venv/bin/activate
+$ python -m venv .venv
+$ source .venv/bin/activate # MacOS / Linux
+$ .venv/Scripts/activate # Windows
 ```
 
 ### 2. Import package
 
 ```
-$ python3 -m pip install -r requirements.txt
-$ python3 -m playwright install
+$ pip install -r requirements.txt
+$ playwright install
 ```
 
 ### 3. Run test
