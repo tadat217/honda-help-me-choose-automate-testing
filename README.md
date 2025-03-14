@@ -30,7 +30,7 @@ $ pytest
 :warning: _IMPORTANT:_ make sure to run all theese script after import new excel file to avoid error!
 
 ```bash
-$ python excel2json_model.py
-$ python excel2json_question.py
-$ python question2workflow.py
+$ python python/excel2json_model.py
+$ python python/excel2json_question.py
+$ python python/question2workflow.py
 ```
