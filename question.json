@@ -1,0 +1,244 @@
+[
+  {
+    "id": 0,
+    "question": "What type of vehicle are you interested in?",
+    "answear": [
+      "Motorcycle",
+      "ATV",
+      "Side-by-Side"
+    ],
+    "parents": []
+  },
+  {
+    "id": 1,
+    "question": "Where do you plan on riding?",
+    "answear": [
+      "Street",
+      "Dirt",
+      "Both"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "What type of riding do you think you will do the most (street)?",
+    "answear": [
+      "Commuting (city)",
+      "Canyons",
+      "Open Road",
+      "Long Distance",
+      "Racetrack",
+      "Weekend",
+      "Urban Cruising",
+      "Adventure/Dual Sport"
+    ],
+    "parents": [
+      {
+        "question_id": 1,
+        "answear_id": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What type of riding do you think you will do the most (dirt)?",
+    "answear": [
+      "Trails / Woods / Recreational",
+      "Motocross/Supercross (track)",
+      "Desert",
+      "Enduro/Off-Road Competition",
+      "Trials"
+    ],
+    "parents": [
+      {
+        "question_id": 1,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What is your riding experience (both)?",
+    "answear": [
+      "Beginner",
+      "Intermediate",
+      "Expert"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What is your height (for those who answer yes to Beginner or Intermediate on question 8)?",
+    "answear": [
+      "Under 5'3\"",
+      "5'3\" - 5'9\"",
+      "Over 5'9\""
+    ],
+    "parents": [
+      {
+        "question_id": 4,
+        "answear_id": 0
+      },
+      {
+        "question_id": 4,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Are you planning on carrying a passenger (street)?",
+    "answear": [
+      "Yes/Often",
+      "No/Seldom",
+      "Maybe/Sometimes"
+    ],
+    "parents": [
+      {
+        "question_id": 1,
+        "answear_id": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "What will be the main purpose of your ATV?",
+    "answear": [
+      "Mostly Work",
+      "Mix of work and recreation",
+      "Mostly recreation"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What will you primarily use the ATV for?",
+    "answear": [
+      "Just for fun/casual riding",
+      "Farming/ranching",
+      "General property maintenance",
+      "Plowing snow",
+      "Hunting and fishing",
+      "Trail riding",
+      "Mudding",
+      "Desert/Dunes"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "What size ATV will you need?",
+    "answear": [
+      "Adult",
+      "Youth",
+      "Not sure"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "How much power do you think you will need?",
+    "answear": [
+      "Light/Moderate power for casual rides",
+      "Medium power for a balance of work and play",
+      "High power for heavy-duty tasks or challenging terrain"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 1
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "What will be the main purpose of your SxS?",
+    "answear": [
+      "Mostly Work",
+      "Mix of work and recreation",
+      "Mostly recreation",
+      "Racing or high performance"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 2
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "What will you primarily use the SxS for?",
+    "answear": [
+      "Just for fun/casual riding",
+      "Farming/ranching",
+      "General property maintenance",
+      "Plowing snow",
+      "Hunting and fishing",
+      "Trail Riding",
+      "Mudding/Rock Crawling",
+      "Desert/Dunes"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 2
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "How many passengers will you typically carry?",
+    "answear": [
+      "Just me and at most one passenger",
+      "Up to four passengers",
+      "Up to six passengers"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 2
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "How much power do you think you will need?",
+    "answear": [
+      "Moderate power for light recreation and work",
+      "Medium power for a balance of performance and utility",
+      "High power for heavy-duty work or high-speed performance"
+    ],
+    "parents": [
+      {
+        "question_id": 0,
+        "answear_id": 2
+      }
+    ]
+  }
+]
