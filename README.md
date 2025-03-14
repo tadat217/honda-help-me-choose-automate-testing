@@ -27,7 +27,7 @@ $ pytest
 
 ### Get json data from excel
 
-:warning:__IMPORTANT__ make sure to run all theese script after import new excel file to avoid error!
+:warning: _IMPORTANT:_ make sure to run all theese script after import new excel file to avoid error!
 
 ```bash
 $ python excel2json_model.py
