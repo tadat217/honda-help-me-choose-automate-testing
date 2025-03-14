@@ -5,10 +5,10 @@ import json
 
 question_data = None
 model_data = None
-with open('question.json', 'r') as f:
+with open('json/question.json', 'r') as f:  
     question_data = json.load(f)
 
-with open('model.json', 'r') as f:
+with open('json/model.json', 'r') as f:
     model_data = json.load(f)
 
 async def process_workflow(page: Page, workflow: tuple):
@@ -46,7 +46,7 @@ async def process_workflow(page: Page, workflow: tuple):
 @pytest.mark.asyncio
 async def test_question_order(page: Page):
     global model_data
-    with open('workflow.json', 'r') as f:
+    with open('json/workflow.json', 'r') as f:
        workflow_json = json.load(f)
     want_to_test_list = [_ for _ in range(70, 110)]
     filters = eval(model_data['FourTrax Recon']['filters'])

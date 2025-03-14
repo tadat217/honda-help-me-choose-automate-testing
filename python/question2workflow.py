@@ -1,6 +1,6 @@
 import json
 
-with open('question.json', 'r') as f:
+with open('json/question.json', 'r') as f:
     question_data = json.load(f)
 
 current_workflow = []
@@ -30,5 +30,5 @@ def build_workflow(i):
 for i in range(len(question_data)):
     if(len(question_data[i]['parents']) == 0):
         build_workflow(i)
-with open('workflow.json', 'w') as f:
+with open('json/workflow.json', 'w') as f:
     json.dump(workflow_json, f)
