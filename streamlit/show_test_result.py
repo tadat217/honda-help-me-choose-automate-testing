@@ -6,6 +6,13 @@ import os
 
 st.title("Test Results 📊")
 
+question_data = {}
+
+with open('json/question.json', 'r') as f:
+    question_data = json.load(f)
+with open('json/workflow.json', 'r') as f:
+    workflow_data = json.load(f)
+
 # Tạo 2 tab với st.tabs
 tab_a, tab_b = st.tabs(["Workflow", "Models"])
 
@@ -49,41 +56,28 @@ with tab_a:
             status_color = "red"
             icon = "❌"
         with st.expander(f":{status_color}[Workflow {id} - {status}] {icon}"):
-            st.write(workflow)
-    # Thêm expander để hiển thị nội dung có thể mở rộng/thu gọn
-    # with st.expander("Nhấn vào đây để xem chi tiết về kết quả workflow"):
-    #     st.markdown("""
-    #     ### Chi tiết kết quả workflow
-        
-    #     Đây là phần nội dung chi tiết về kết quả workflow mà bạn có thể xem khi mở rộng phần này.
-        
-    #     #### Các thông số quan trọng:
-    #     - **Tỷ lệ thành công**: 85%
-    #     - **Thời gian trung bình**: 2.5 giây
-    #     - **Số lượng workflow đã chạy**: 120
-        
-    #     #### Lưu ý:
-    #     Các workflow được kiểm tra dựa trên dữ liệu từ file JSON và được xác thực thông qua các bước kiểm tra tự động.
-        
-    #     ```python
-    #     # Ví dụ về cách workflow được xử lý
-    #     async def process_workflow(page, workflow, models):
-    #         for question_id, answer_id in workflow:
-    #             # Xác thực câu hỏi và câu trả lời
-    #             await validate_question_answer(page, question_id, answer_id)
-    #             # Xác thực các model được hiển thị
-    #             await validate_model_cards(page, models)
-    #     ```
-    #     """)
-        
-    #     # Hiển thị bảng dữ liệu mẫu về workflow
-    #     workflow_data = pd.DataFrame({
-    #         'ID': [1, 2, 3, 4, 5],
-    #         'Workflow': ['[(0, 1), (7, 0)]', '[(0, 2), (11, 2)]', '[(0, 1), (8, 5)]', '[(0, 2), (13, 1)]', '[(0, 2), (12, 0)]'],
-    #         'Thời gian (s)': [2.1, 3.4, 1.8, 2.7, 2.2],
-    #         'Trạng thái': ['Thành công', 'Thành công', 'Lỗi', 'Thành công', 'Thành công']
-    #     })
-    #     st.dataframe(workflow_data)
+            #for model in workflow['expected_models']:
+            #    st.markdown(f"Model: {model}")
+
+            st.markdown(f"#### Workflow {workflow['workflow_id']} details")
+            st.markdown(f"**Expected Models**")
+            st.markdown(f"{' | '.join([f'{m}' for m in workflow['expected_models']])}")
+            for i, res in enumerate(workflow['result_displayed']):
+                st.markdown(f":blue[**Step {i+1}**]")
+                (question_id, answear_id) = eval(workflow_data[int(id)]['workflow'])[i]
+                st.markdown("**Expected Q/A**")
+                st.markdown(f"'{question_data[question_id]['question']}'")
+                st.markdown(f"{' | '.join([f"'**{a}**'" if idx == answear_id else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
+                st.markdown("**Received Q/A**")
+                st.markdown(f"'{res['question']}'")
+                st.markdown(f"{res['answers']}")
+                st.markdown("**Received Models**")
+                st.markdown(f"{' | '.join([f'{m}' for m in res['models']])}")
+                #st.markdown(f"{' | '.join([f"'**{a}**'" if idx == res['answear_id'] else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
+                missed_models = [m for m in workflow['expected_models'] if m not in res['models']]
+                if len(missed_models) > 0:
+                    st.markdown(f"**:red[Missed Models]**")
+                    st.markdown(f"{' | '.join([f'{m}' for m in missed_models])}")
 
 # Nội dung cho Tab B
 with tab_b:
