@@ -70,7 +70,7 @@ with tab_a:
                 st.markdown(f"{' | '.join([f"'**{a}**'" if idx == answear_id else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
                 st.markdown("**Received Q/A**")
                 st.markdown(f"'{res['question']}'")
-                st.markdown(f"{res['answers']}")
+                st.markdown(f"{' | '.join([f"'{a}'" for a in res['answers']])}")
                 st.markdown("**Received Models**")
                 st.markdown(f"{' | '.join([f'{m}' for m in res['models']])}")
                 #st.markdown(f"{' | '.join([f"'**{a}**'" if idx == res['answear_id'] else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
