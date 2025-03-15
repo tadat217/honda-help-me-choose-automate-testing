@@ -67,17 +67,16 @@ with tab_a:
                 (question_id, answear_id) = eval(workflow_data[int(id)]['workflow'])[i]
                 st.markdown("**Expected Q/A**")
                 st.markdown(f"'{question_data[question_id]['question']}'")
-                st.markdown(f"{' | '.join([f"'**{a}**'" if idx == answear_id else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
+                st.markdown(' | '.join([f"**{a}**" if idx == answear_id else f"{a}" for idx, a in enumerate(question_data[question_id]['answear'])]))
                 st.markdown("**Received Q/A**")
                 st.markdown(f"'{res['question']}'")
-                st.markdown(f"{' | '.join([f"'{a}'" for a in res['answers']])}")
+                st.markdown(' | '.join([f"'{a}'" for a in res['answers']]))
                 st.markdown("**Received Models**")
-                st.markdown(f"{' | '.join([f'{m}' for m in res['models']])}")
-                #st.markdown(f"{' | '.join([f"'**{a}**'" if idx == res['answear_id'] else f"'{a}'" for idx, a in enumerate(question_data[question_id]['answear'])])}")
+                st.markdown(' | '.join([f'{m}' for m in res['models']]))
                 missed_models = [m for m in workflow['expected_models'] if m not in res['models']]
                 if len(missed_models) > 0:
                     st.markdown(f"**:red[Missed Models]**")
-                    st.markdown(f"{' | '.join([f'{m}' for m in missed_models])}")
+                    st.markdown(' | '.join([f'{m}' for m in missed_models]))
 
 # Nội dung cho Tab B
 with tab_b:
